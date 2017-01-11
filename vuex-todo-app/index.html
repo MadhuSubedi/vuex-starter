@@ -6,33 +6,29 @@
 
 </head>
 <body>
-	<div id="app" class="container">
-		<div class="row">	
-			<div class="col-md-6 col-md-offset-3">		
-				<h1>Simple To do Application</h1>
-					<span v-if="remaining.length"> Remaining ( {{ remaining.length }} ) </span>
-
-				<ul class="list-group">
-				  <li class="list-group-item" v-for="todo in todos">
-				    <span class="badge" v-if="todo.completed">Done</span>
-				    <span class="badge" v-else>Not Completed</span>
-
-				   	<span class="label label-danger" v-if="todo.completed">&times;</span>
-				    {{ todo.todo }}
-				    <button 
-				    	class="label label-success"
-				    	v-if="!todo.completed" 
-				    	v-on:click="complete(todo)"
-				    >
-				  		check
-				  	</button>
-				  </li>
-				</ul>	
-			</div>
-		</div>
+	<div id="app1">
+	  <div class="clear-fix">&nbsp;</div>
+	  <div class="container">
+	     <div class="col-md-6 col-md-offset-3">
+	       <router-link to="/">
+	           <a href="#" class="btn btn-default">Home</a>
+	       </router-link>
+	         <router-link to="/create-todo">
+	           <a href="#" class="btn btn-default">Create Todo</a>
+	       </router-link>
+	       <router-link to="/todo">
+	           <a href="#" class="btn btn-default">Todo List</a>
+	       </router-link>
+	    </div>
+	    <div class="col-md-6 col-md-offset-3">
+	      <router-view class="view"></router-view>
+	    </div>
+	  </div>
 	</div>
+
 	<script type="text/javascript" src="https://unpkg.com/vue@2.0.0-rc.8/dist/vue.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/vuex@2.0.0-rc.6"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.1.1/vue-router.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
